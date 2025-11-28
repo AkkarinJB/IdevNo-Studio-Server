@@ -1,0 +1,19 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=thsv87.hostatom.com;Port=3306;Database=kitkh_geno;User=kitkh_geno;Password=genodev@kkk;CharSet=utf8mb4;"
+  },
+  "JwtSettings": {
+    "SecretKey": "YourSuperSecretKeyForJWTTokenGenerationThatShouldBeAtLeast32CharactersLong",
+    "Issuer": "IdevNoStudio",
+    "Audience": "IdevNoStudioUsers",
+    "ExpirationInMinutes": 60
+  },
+  "EnableSwagger": true
+}
+
