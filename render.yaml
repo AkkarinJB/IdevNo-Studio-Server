@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: idevnostudio-api
+    env: dotnet
+    buildCommand: dotnet publish -c Release -o ./publish
+    startCommand: dotnet ./publish/IdevNoStudio.Api.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:$PORT
+    # ⚠️ REQUIRED: Add these environment variables in Render dashboard:
+    # - DATABASE_URL (MySQL connection string) - REQUIRED
+    # - JWT_SECRET_KEY (Secret key for JWT) - REQUIRED
+    #
+    # 📝 OPTIONAL environment variables:
+    # - JWT_ISSUER (default: "IdevNoStudio")
+    # - JWT_AUDIENCE (default: "IdevNoStudioUsers")
+    # - JWT_EXPIRATION_MINUTES (default: "60")
+    # - ENABLE_SWAGGER (default: "true")
+    #
+    # 📖 See RENDER_ENV_VARS.md for detailed information
+

@@ -1,0 +1,16 @@
+bin/
+obj/
+.git/
+.gitignore
+*.user
+*.suo
+*.cache
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+appsettings.Development.json
+appsettings.Local.json.example
+

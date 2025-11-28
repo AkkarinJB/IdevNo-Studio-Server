@@ -1,4 +1,5 @@
 using System.Text;
+using DotNetEnv;
 using IdevNoStudio.Api.Data;
 using IdevNoStudio.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,6 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+
+// Load .env file if it exists (for local development)
+// In production, use environment variables set by the hosting platform
+if (File.Exists(".env"))
+{
+    Env.Load();
+}
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -186,7 +194,7 @@ catch (Exception ex)
     logger.LogError(ex, "Failed to initialize database: {Message}", ex.Message);
 }
 
-// Get port from Railway environment variable or use default
+// Get port from environment variable (Render, Railway, etc.) or use default
 var port = Environment.GetEnvironmentVariable("PORT");
 if (!string.IsNullOrEmpty(port))
 {
